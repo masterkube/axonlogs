@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Axon Logs</title>
+    <style>
+        body {
+            background-color: #222A45;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .log {
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .input-group button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: #ff6600;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Axon Logs</h1>
+    
+    <form action="/axonlogs" method="POST">
+        <div class="input-group">
+            <label for="log-since">Log Since:</label>
+            <input type="number" id="log-since" name="log_since" min="1" max="1000">
+            <select name="time_unit">
+                <option value="s">Seconds</option>
+                <option value="m">Minutes</option>
+                <option value="h">Hours</option>
+            </select>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+    {% for log in logs %}
+        <div class="log">
+            ►  {{ log }}
+        </div>
+    {% endfor %}
+</body>
+</html>
