@@ -18,19 +18,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 167 remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.8
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          git clone https://github.com/masterkube/axonlogs.git
-          cd axonlogs
-          sudo apt install python3-pip
-          pip install -r requirements.txt
-          nohup python3 dockercmd.py &
+    #- name: 167 remote ssh commands using password
+    #  uses: appleboy/ssh-action@v0.1.8
+     # with:
+     #   host: ${{ secrets.HOST }}
+      #  username: ${{ secrets.USERNAME }}
+       # password: ${{ secrets.PASSWORD }}
+   #     port: ${{ secrets.PORT }}
+     #   script: |
+    #      git clone https://github.com/masterkube/axonlogs.git
+    #      cd axonlogs
+     #     sudo apt install python3-pip
+    #      pip install -r requirements.txt
+       #   nohup python3 dockercmd.py &
           
     - name: 137 remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.8
